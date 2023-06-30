@@ -6,7 +6,7 @@ class BoardLayout extends StatelessWidget {
   });
 
   static const indentValue = 25.0;
-  // static  dividerColor = Colors.grey.shade700;
+  static const dividerColor = Color(0xff757575);
 
   @override
   Widget build(BuildContext context) {
@@ -18,44 +18,44 @@ class BoardLayout extends StatelessWidget {
         // horizontal lines
         SizedBox(
           height: screenHeight / 2.0,
-          child: Column(
+          child: const Column(
             children: [
-              const Spacer(),
+              Spacer(),
               Divider(
-                color: Colors.grey.shade600,
+                color: dividerColor,
                 indent: indentValue,
                 endIndent: indentValue,
                 thickness: 3.5,
               ),
-              const SizedBox(height: 130.0),
+              SizedBox(height: 130.0),
               Divider(
-                color: Colors.grey.shade600,
+                color: dividerColor,
                 indent: indentValue,
                 endIndent: indentValue,
                 thickness: 3.5,
               ),
-              const Spacer(),
+              Spacer(),
             ],
           ),
         ),
         // verticle lines
         SizedBox(
           height: screenHeight / 1.9,
-          child: Row(
+          child: const Row(
             children: [
-              const Spacer(),
+              Spacer(),
               VerticalDivider(
-                color: Colors.grey.shade600,
+                color: dividerColor,
                 thickness: 3.5,
                 width: 5.0,
               ),
-              const SizedBox(width: 130.0),
+              SizedBox(width: 130.0),
               VerticalDivider(
-                color: Colors.grey.shade600,
+                color: dividerColor,
                 thickness: 3.5,
                 width: 5.0,
               ),
-              const Spacer(),
+              Spacer(),
             ],
           ),
         )

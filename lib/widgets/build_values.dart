@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:tictactoe/model/data.dart';
 
 import 'board_layout.dart';
+import '../model/data.dart';
 
 class BuildValues extends StatelessWidget {
   const BuildValues({
@@ -41,13 +41,13 @@ class BuildValues extends StatelessWidget {
 
                         return GestureDetector(
                           behavior: HitTestBehavior.translucent,
-                          onTap: () {
-                            value.setValue(index, context);
-                            debugPrint('PRESSED INDEX : $index');
-                          },
+                          onTap: () => value.setValue(index, context),
                           child: currentValue.isNotEmpty
                               ? Image.asset(
                                   'assets/images/$currentValue.png',
+                                  color: currentValue == 'x'
+                                      ? const Color(0xff3a89d3)
+                                      : const Color(0xff37bbd3),
                                 )
                               : const SizedBox.shrink(),
                         );

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:tictactoe/widgets/result_dialog.dart';
+import 'package:audioplayers/audioplayers.dart';
+
+import '../widgets/result_dialog.dart';
 
 class DataModel with ChangeNotifier {
   final List<String> _boardValues = ['', '', '', '', '', '', '', '', ''];
@@ -18,7 +20,8 @@ class DataModel with ChangeNotifier {
   int _drawCount = 0;
   int get drawCount => _drawCount;
 
-  var _isReadOnly = false;
+  bool _isReadOnly = false;
+  bool get isReadOnly => _isReadOnly;
 
   void resetBoard() {
     for (int i = 0; i < _boardValues.length; i++) {
@@ -47,16 +50,20 @@ class DataModel with ChangeNotifier {
       final playerNumber = _activeValue == 'x' ? '1' : '2';
 
       if (isGameWon(_activeValue)) {
+        playSFX('win');
         displayResult(context, playerNumber, 'win');
         _isReadOnly = true;
         playerNumber == '1' ? _playerOnePoints += 1 : _playerTwoPoints += 1;
       } else if (isGameOver()) {
+        playSFX('draw');
         _drawCount += 1;
         displayResult(context, playerNumber, 'draw');
+      } else {
+        playSFX('pop');
       }
-    }
 
-    notifyListeners();
+      notifyListeners();
+    }
   }
 
   bool isGameOver() {
@@ -98,9 +105,41 @@ class DataModel with ChangeNotifier {
   }
 
   void restartGame(BuildContext context) {
+    Navigator.pop(context);
     _activeValue = 'o';
     _isReadOnly = false;
     resetBoard();
     notifyListeners();
+  }
+
+  bool _isSFXEnabled = true;
+  bool get isSFXEnabled => _isSFXEnabled;
+
+  void toggleSFX() {
+    _isSFXEnabled = !_isSFXEnabled;
+    notifyListeners();
+  }
+
+  void resetGame(BuildContext context) {
+    restartGame(context);
+    _playerOnePoints = 0;
+    _playerTwoPoints = 0;
+    _drawCount = 0;
+
+    notifyListeners();
+  }
+
+  final _audioPlayer = AudioPlayer();
+
+  @override
+  void dispose() {
+    _audioPlayer.dispose();
+    super.dispose();
+  }
+
+  Future<void> playSFX(String type) async {
+    if (!_isSFXEnabled) return;
+
+    await _audioPlayer.play(AssetSource('audio/$type.mp3'));
   }
 }

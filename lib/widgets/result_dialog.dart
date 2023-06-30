@@ -1,7 +1,9 @@
-import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:tictactoe/model/data.dart';
+import 'package:fluentui_icons/fluentui_icons.dart';
+
+import '../constants.dart';
+import '../model/data.dart';
 
 class ResultDialog extends StatelessWidget {
   const ResultDialog({
@@ -27,12 +29,7 @@ class ResultDialog extends StatelessWidget {
           children: [
             Text(
               result == 'draw' ? 'Game Over' : 'Congratulations  🎊',
-              style: const TextStyle(
-                color: Colors.white,
-                fontSize: 23.0,
-                fontFamily: 'valera',
-                fontWeight: FontWeight.bold,
-              ),
+              style: kDialogTitleStyle,
             ),
             const SizedBox(height: 25.0),
             Text(
@@ -53,10 +50,7 @@ class ResultDialog extends StatelessWidget {
                 DialogButton(
                   title: 'Restart',
                   icon: FluentSystemIcons.ic_fluent_arrow_sync_regular,
-                  onTap: () {
-                    context.read<DataModel>().restartGame(context);
-                    Navigator.pop(context);
-                  },
+                  onTap: () => context.read<DataModel>().restartGame(context),
                 ),
                 DialogButton(
                   title: 'View board',

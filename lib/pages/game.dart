@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:fluentui_icons/fluentui_icons.dart';
 import 'package:provider/provider.dart';
-import 'package:tictactoe/model/data.dart';
-import 'package:tictactoe/widgets/result_dialog.dart';
+import 'package:fluentui_icons/fluentui_icons.dart';
 
+import '../model/data.dart';
 import '../widgets/game_stat.dart';
 import '../widgets/build_values.dart';
 import '../widgets/round_button.dart';
+import '../widgets/settings_dialog.dart';
+import '../widgets/reset_stats_dialog.dart';
 
 class GamePage extends StatelessWidget {
   const GamePage({super.key});
@@ -14,7 +15,6 @@ class GamePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // backgroundColor: Colors.black,
       backgroundColor: const Color(0xff0f0f0f),
       body: Column(
         children: [
@@ -50,7 +50,13 @@ class GamePage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               CustomRoundButton(
-                onTap: () => context.read<DataModel>().restartGame(context),
+                onTap: () => showDialog(
+                  barrierDismissible: false,
+                  context: context,
+                  builder: (context) {
+                    return const CommonDialog(type: 'restart');
+                  },
+                ),
                 icon: FluentSystemIcons.ic_fluent_arrow_sync_regular,
               ),
               Container(
@@ -68,10 +74,11 @@ class GamePage extends StatelessWidget {
                     return Text(
                       'PLAYER ${value.activeValue == 'o' ? 1 : 2}',
                       style: TextStyle(
-                        // color: Colors.grey,
-                        color: value.activeValue == 'o'
-                            ? const Color(0xff3a89d3)
-                            : const Color(0xff37bbd3),
+                        color: value.isReadOnly
+                            ? Colors.grey
+                            : value.activeValue == 'o'
+                                ? const Color(0xff3a89d3)
+                                : const Color(0xff37bbd3),
                         fontSize: 16.0,
                         fontFamily: 'valera',
                         fontWeight: FontWeight.bold,
@@ -82,14 +89,10 @@ class GamePage extends StatelessWidget {
               ),
               CustomRoundButton(
                 onTap: () {
-                  debugPrint('Settings pressed');
                   showDialog(
                     context: context,
                     builder: (context) {
-                      return const ResultDialog(
-                        result: 'win',
-                        playerNumber: '1',
-                      );
+                      return const SettingsDialog();
                     },
                   );
                 },
