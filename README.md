@@ -46,10 +46,10 @@ flutter run
 * To start a new game, press the reset button.
 
 ### Screenshots
-<img src="./screenshots/0.jpg" alt="Example Image" width="250">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<img src="./screenshots/1.jpg" alt="Example Image" width="250">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="./screenshots/0.jpg" alt="Example Image" width="250">&nbsp;&nbsp;&nbsp;
+<img src="./screenshots/1.jpg" alt="Example Image" width="250">&nbsp;&nbsp;&nbsp;
 <img src="./screenshots/2.jpg" alt="Example Image" width="250"><br><br>
-<img src="./screenshots/3.jpg" alt="Example Image" width="250">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<img src="./screenshots/3.jpg" alt="Example Image" width="250">&nbsp;&nbsp;&nbsp;
 <img src="./screenshots/4.jpg" alt="Example Image" width="250"><br><br>
 
 ### License
