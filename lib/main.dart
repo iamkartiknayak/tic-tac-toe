@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
-import 'package:tictactoe/model/data.dart';
-import 'package:tictactoe/pages/game.dart';
+
+import './model/data.dart';
+import './pages/game.dart';
 
 void main() {
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
