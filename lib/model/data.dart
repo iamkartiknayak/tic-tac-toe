@@ -140,6 +140,9 @@ class DataModel with ChangeNotifier {
   Future<void> playSFX(String type) async {
     if (!_isSFXEnabled) return;
 
-    await _audioPlayer.play(AssetSource('audio/$type.mp3'));
+    await _audioPlayer.play(
+      AssetSource('audio/$type.mp3'),
+      volume: 0.015,
+    );
   }
 }
