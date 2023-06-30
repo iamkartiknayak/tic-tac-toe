@@ -10,7 +10,7 @@ This is a simple Tic Tac Toe game developed in Flutter. It allows two players to
 * widgets: contains components used throughout the app.
 * assets: contains assets used in app such as images, audio etc
 
-## Features
+### Features
 * Two-player gameplay: Play against a friend on the same device.
 Interactive UI: Tap on the grid cells to place your mark (either "X" or "O").
 * Win detection: The game automatically detects when a player achieves three consecutive marks in a row, column, or diagonal and declares them as the winner.
@@ -22,9 +22,13 @@ Reset: Reset the game board to start a new game.
 ```bash
 git clone https://github.com/iamkartiknayak/Flutter_TIC_TAC_TOE.git
 ```
+#### Rename the project directory before running flutter commands
+```bash
+mv Flutter_TIC_TAC_TOE tic_tac_toe
+```
 #### Navigate to the project directory:
 ```bash 
-cd whatsapp-clone-flutter
+cd tic_tac_toe
 ```
 #### Install the dependencies:
 ```bash 
