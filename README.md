@@ -20,11 +20,11 @@ Reset: Reset the game board to start a new game.
 ### Installation
 #### Clone the repository using the following command:
 ```bash
-git clone https://github.com/iamkartiknayak/Flutter_TIC_TAC_TOE.git
+git clone https://github.com/iamkartiknayak/tic-tac-toe.git
 ```
 #### Rename the project directory before running flutter commands
 ```bash
-mv Flutter_TIC_TAC_TOE tic_tac_toe
+mv tic-tac-toe tic_tac_toe
 ```
 #### Navigate to the project directory:
 ```bash 
