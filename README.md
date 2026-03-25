@@ -17,28 +17,6 @@ Interactive UI: Tap on the grid cells to place your mark (either "X" or "O").
 * Draw detection: If all the cells are filled without a winner, the game declares it as a draw.
 Reset: Reset the game board to start a new game.
 
-### Installation
-#### Clone the repository using the following command:
-```bash
-git clone https://github.com/iamkartiknayak/tic-tac-toe.git
-```
-#### Rename the project directory before running flutter commands
-```bash
-mv tic-tac-toe tic_tac_toe
-```
-#### Navigate to the project directory:
-```bash 
-cd tic_tac_toe
-```
-#### Install the dependencies:
-```bash 
-flutter pub get
-```
-#### Run the application:
-```bash 
-flutter run
-```
-
 ### Usage
 * Launch the application on your device/emulator.
 * The game board will be displayed with an empty grid.
